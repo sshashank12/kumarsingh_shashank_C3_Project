@@ -16,6 +16,18 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
+    public int getCartValue(List<String> itemNames) throws itemNotFoundException {
+        int total = 0;
+        for (String itemName : itemNames) {
+            Item foundItem = menu.stream()
+                    .filter(item -> itemName.equals(item.getName()))
+                    .findFirst()
+                    .orElseThrow(() -> new itemNotFoundException(itemName));
+            total += foundItem.getPrice();
+        }
+        return total;
+    }
+
     public boolean isRestaurantOpen() {
         return getCurrentTime().isAfter(openingTime) && getCurrentTime().isBefore(closingTime);
     }

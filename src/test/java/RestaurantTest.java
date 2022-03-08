@@ -27,13 +27,16 @@ class RestaurantTest {
     }
 
     @Test
-    public void null_value_to_the_item_cart(){
-
+    public void total_on_adding_items_to_cart_should_sum_up() throws itemNotFoundException {
+        adding_item_to_menu_should_increase_menu_size_by_1();
+        int cartValue = restaurant.getCartValue(Arrays.asList("Sweet corn soup", "Sizzling brownie"));
+        Assertions.assertEquals(438, cartValue);
     }
 
     @Test
-    public void invalid_values_to_the_item_cart(){
-
+    public void exception_on_adding_invalid_items_to_cart() throws itemNotFoundException {
+        adding_item_to_menu_should_increase_menu_size_by_1();
+        Assertions.assertThrows(itemNotFoundException.class, () -> restaurant.getCartValue(Arrays.asList("Swee", " brownie")));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
