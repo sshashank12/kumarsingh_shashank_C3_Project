@@ -26,6 +26,16 @@ class RestaurantTest {
         Assertions.assertEquals(Boolean.FALSE, restaurant.isRestaurantOpen());
     }
 
+    @Test
+    public void null_value_to_the_item_cart(){
+
+    }
+
+    @Test
+    public void invalid_values_to_the_item_cart(){
+
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
